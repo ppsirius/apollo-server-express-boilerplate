@@ -1,0 +1,71 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript"
+  ],
+  "rules": {
+    "sort-imports": [
+      "warn",
+      {
+        "ignoreCase": false,
+        "ignoreDeclarationSort": true,
+        "ignoreMemberSort": false
+      }
+    ],
+    "no-useless-return": "error",
+    "curly": ["error", "all"],
+    "quotes": "off",
+    "@typescript-eslint/quotes": ["error", "single", {"avoidEscape": true}],
+    "@typescript-eslint/no-unused-vars": ["error", {"argsIgnorePattern": "^next$", "ignoreRestSiblings": true}],
+    "no-else-return": "error",
+    "@typescript-eslint/interface-name-prefix": "off",
+    "@typescript-eslint/consistent-type-definitions": ["error", "type"],
+    "@typescript-eslint/naming-convention": ["error"],
+    "lines-between-class-members": ["warn", "always"],
+    "newline-before-return": "warn",
+    "newline-after-var": ["warn", "always"],
+    "no-console": ["warn", {"allow": ["info"]}],
+    "@typescript-eslint/array-type": [
+      "error",
+      {
+        "default": "array",
+        "readonly": "array"
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.test.ts", "**/__tests__/**"],
+      "env": {"jest": true},
+      "rules": {
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/ban-ts-ignore": "off",
+        "new-cap": "off",
+        "@typescript-eslint/no-explicit-any": "off"
+      }
+    },
+    {
+      "files": ["*.d.ts"],
+      "env": {"node": true},
+      "rules": {
+        "@typescript-eslint/interface-name-prefix": "off"
+      }
+    },
+    {
+      "files": ["./jest.config.js"],
+      "env": {"node": true}
+    }
+  ]
+}

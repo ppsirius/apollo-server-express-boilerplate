@@ -1,0 +1,15 @@
+.idea/
+*.iml
+node_modules/
+**/tmp/*
+config/local.*
+!config/local-test*
+*.env
+*.env.*
+!.env.template
+!*.env.js
+dist
+yarn-error.log
+.DS_Store
+test_*.xml
+report*.json
